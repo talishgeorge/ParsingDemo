@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834C0E53285C4FDB005ED39C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834C0E52285C4FDB005ED39C /* DetailsViewController.swift */; };
+		834C0E57285C7504005ED39C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834C0E56285C7504005ED39C /* ListViewController.swift */; };
 		83D05850285C2FAE00FFB2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D0584F285C2FAE00FFB2AC /* AppDelegate.swift */; };
 		83D05852285C2FAE00FFB2AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D05851285C2FAE00FFB2AC /* SceneDelegate.swift */; };
-		83D05854285C2FAE00FFB2AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D05853285C2FAE00FFB2AC /* ViewController.swift */; };
+		83D05854285C2FAE00FFB2AC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D05853285C2FAE00FFB2AC /* HomeController.swift */; };
 		83D05857285C2FAE00FFB2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D05855285C2FAE00FFB2AC /* Main.storyboard */; };
 		83D05859285C2FB000FFB2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D05858285C2FB000FFB2AC /* Assets.xcassets */; };
 		83D0585C285C2FB000FFB2AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D0585A285C2FB000FFB2AC /* LaunchScreen.storyboard */; };
@@ -36,10 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		834C0E52285C4FDB005ED39C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		834C0E56285C7504005ED39C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		83D0584C285C2FAE00FFB2AC /* ParsingDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParsingDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D0584F285C2FAE00FFB2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D05851285C2FAE00FFB2AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		83D05853285C2FAE00FFB2AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83D05853285C2FAE00FFB2AC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		83D05856285C2FAE00FFB2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83D05858285C2FB000FFB2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83D0585B285C2FB000FFB2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +105,9 @@
 			children = (
 				83D0584F285C2FAE00FFB2AC /* AppDelegate.swift */,
 				83D05851285C2FAE00FFB2AC /* SceneDelegate.swift */,
-				83D05853285C2FAE00FFB2AC /* ViewController.swift */,
+				83D05853285C2FAE00FFB2AC /* HomeController.swift */,
+				834C0E56285C7504005ED39C /* ListViewController.swift */,
+				834C0E52285C4FDB005ED39C /* DetailsViewController.swift */,
 				83D05855285C2FAE00FFB2AC /* Main.storyboard */,
 				83D05858285C2FB000FFB2AC /* Assets.xcassets */,
 				83D0585A285C2FB000FFB2AC /* LaunchScreen.storyboard */,
@@ -258,9 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83D05854285C2FAE00FFB2AC /* ViewController.swift in Sources */,
+				83D05854285C2FAE00FFB2AC /* HomeController.swift in Sources */,
 				83D05850285C2FAE00FFB2AC /* AppDelegate.swift in Sources */,
 				83D05852285C2FAE00FFB2AC /* SceneDelegate.swift in Sources */,
+				834C0E57285C7504005ED39C /* ListViewController.swift in Sources */,
+				834C0E53285C4FDB005ED39C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
