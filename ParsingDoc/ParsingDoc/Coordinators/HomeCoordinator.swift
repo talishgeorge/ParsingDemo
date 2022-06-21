@@ -13,7 +13,7 @@ final class HomeCoordinator: Coordinator {
     private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
     
-    var parentCoordinator: LoginCoordinator?
+    var parentCoordinator: ParentCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,7 +23,7 @@ final class HomeCoordinator: Coordinator {
         let homeViewController = HomeViewController.instantiate()
         let homeViewModel = HomeViewModel()
         homeViewModel.coordinator = self
-        homeViewController.viewModel = homeViewModel
+        homeViewController.viewModel = homeViewModel // Enable to remove the deallocaiton while going back
         navigationController.pushViewController(homeViewController, animated: true)
     }
     

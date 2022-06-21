@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-final class LoginCoordinator: Coordinator {
+protocol ParentCoordinator {
+    func childDidFinish(_ childCoordinator: Coordinator)
+}
+
+final class LoginCoordinator: Coordinator, ParentCoordinator {
     
     private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
@@ -31,6 +35,11 @@ final class LoginCoordinator: Coordinator {
         childCoordinators.append(homeCoordinator)
         homeCoordinator.parentCoordinator = self
         homeCoordinator.start()
+        
+//        let homeCoordinator = TabBarCoordinator(navigationController: navigationController)
+//        childCoordinators.append(homeCoordinator)
+//        homeCoordinator.parentCoordinator = self
+//        homeCoordinator.start()
     }
     
     func childDidFinish(_ childCoordinator: Coordinator) {

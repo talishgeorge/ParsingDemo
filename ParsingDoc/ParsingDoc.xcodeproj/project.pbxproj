@@ -92,6 +92,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		834C0E662861C357005ED39C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				834C0E642861A7C3005ED39C /* HomeViewModel.swift */,
+				834C0E5E2861845C005ED39C /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		834C0E672861C36C005ED39C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83D05853285C2FAE00FFB2AC /* LoginViewController.swift */,
+				834C0E52285C4FDB005ED39C /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		834C0E682861C37E005ED39C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				834C0E582861676E005ED39C /* AppCoordinator.swift */,
+				834C0E5A28616C36005ED39C /* LoginCoordinator.swift */,
+				834C0E5C286182B5005ED39C /* HomeCoordinator.swift */,
+				834C0E6028619DED005ED39C /* TabBarCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		83D05843285C2FAE00FFB2AC = {
 			isa = PBXGroup;
 			children = (
@@ -115,20 +144,15 @@
 		83D0584E285C2FAE00FFB2AC /* ParsingDoc */ = {
 			isa = PBXGroup;
 			children = (
+				834C0E682861C37E005ED39C /* Coordinators */,
+				834C0E672861C36C005ED39C /* Controllers */,
+				834C0E662861C357005ED39C /* ViewModels */,
 				83D0584F285C2FAE00FFB2AC /* AppDelegate.swift */,
 				83D05851285C2FAE00FFB2AC /* SceneDelegate.swift */,
-				83D05853285C2FAE00FFB2AC /* LoginViewController.swift */,
-				834C0E52285C4FDB005ED39C /* HomeViewController.swift */,
 				83D05855285C2FAE00FFB2AC /* Main.storyboard */,
 				83D05858285C2FB000FFB2AC /* Assets.xcassets */,
 				83D0585A285C2FB000FFB2AC /* LaunchScreen.storyboard */,
 				83D0585D285C2FB000FFB2AC /* Info.plist */,
-				834C0E582861676E005ED39C /* AppCoordinator.swift */,
-				834C0E642861A7C3005ED39C /* HomeViewModel.swift */,
-				834C0E5A28616C36005ED39C /* LoginCoordinator.swift */,
-				834C0E5C286182B5005ED39C /* HomeCoordinator.swift */,
-				834C0E5E2861845C005ED39C /* LoginViewModel.swift */,
-				834C0E6028619DED005ED39C /* TabBarCoordinator.swift */,
 				834C0E6228619F77005ED39C /* MainTabBarController.swift */,
 			);
 			path = ParsingDoc;
