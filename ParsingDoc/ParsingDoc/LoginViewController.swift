@@ -7,8 +7,16 @@
 
 import UIKit
 
-class HomeController: UIViewController {
-
+class LoginViewController: UIViewController {
+    
+    var viewModel: LoginViewModel?
+    
+    static func instantiate() -> LoginViewController {
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        let controller = storyBoard.instantiateViewController(withIdentifier:   "LoginViewController") as! LoginViewController
+        return controller
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,9 +26,9 @@ class HomeController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
-    @IBAction func userTappedDetailsButton(_ sender: Any) {
-        
-    }
     
+    @IBAction func userTappedDetailsButton(_ sender: Any) {
+        viewModel?.tappedHomeEvent()
+    }
 }
 

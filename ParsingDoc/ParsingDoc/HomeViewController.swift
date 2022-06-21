@@ -7,13 +7,27 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class HomeViewController: UITableViewController {
 
+    var viewModel: HomeViewModel?
+    
+    static func instantiate() -> HomeViewController {
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        return controller
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel?.viewDidDisappear()
+    }
+    
     
 
     /*
