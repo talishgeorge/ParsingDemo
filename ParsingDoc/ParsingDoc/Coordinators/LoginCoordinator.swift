@@ -8,32 +8,30 @@
 import Foundation
 import UIKit
 
-protocol ParentCoordinator {
-    func childDidFinish(_ childCoordinator: Coordinator)
-}
-
-final class LoginCoordinator: Coordinator, ParentCoordinator {
+final class LoginCoordinator: Coordinator {
     
     private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
         let loginViewController = LoginViewController.instantiate()
-        let loginViewModel = LoginViewModel()
-        loginViewModel.coordinator = self// enable the viewmodel to trigger the coordinator navigate to home
+        let loginViewModel = LoginViewModel {
+            self.tappedHomeButton()//Invoke home button
+        }
         loginViewController.viewModel = loginViewModel
-        
         navigationController.setViewControllers([loginViewController], animated: false)
     }
     
     func tappedHomeButton() {
-        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController, onDismissed: { [weak self] in
+            self?.childCoordinators.removeAll()
+            //self.removeChild(child)
+        })
         childCoordinators.append(homeCoordinator)
-        homeCoordinator.parentCoordinator = self
         homeCoordinator.start()
         
 //        let homeCoordinator = TabBarCoordinator(navigationController: navigationController)
@@ -42,12 +40,11 @@ final class LoginCoordinator: Coordinator, ParentCoordinator {
 //        homeCoordinator.start()
     }
     
-    func childDidFinish(_ childCoordinator: Coordinator) {
-        if let index = childCoordinators.firstIndex(where: { coordinator -> Bool
-            in
-            return childCoordinator === coordinator
-        }) {
-            childCoordinators.remove(at: index)
+    func removeChild(_ child: Coordinator) {
+        guard let index = childCoordinators
+            .firstIndex(where: { $0 === child }) else {
+            return
         }
+        childCoordinators.remove(at: index)
     }
 }

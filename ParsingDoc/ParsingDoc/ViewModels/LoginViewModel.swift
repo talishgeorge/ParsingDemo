@@ -10,9 +10,9 @@ import Foundation
 final class LoginViewModel {
     
     let title = "Login"
-    var coordinator: LoginCoordinator?
+    var invokeHomeButton: (() -> Void)
     
-    func tappedHomeEvent() {
-        coordinator?.tappedHomeButton()
+    init(callback: @escaping (() -> Void)) {
+        self.invokeHomeButton = callback
     }
 }

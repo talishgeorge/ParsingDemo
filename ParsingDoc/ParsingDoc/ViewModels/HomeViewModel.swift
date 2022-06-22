@@ -10,9 +10,13 @@ import Foundation
 final class HomeViewModel {
     
     let title = "Home"
-    var coordinator: HomeCoordinator?
+    var callback: (() -> Void)
+    
+    init(callback: @escaping (() -> Void)) {
+        self.callback = callback
+    }
     
     func viewDidDisappear() {
-        coordinator?.didFinishHomeCoordinator()
+        callback()
     }
 }

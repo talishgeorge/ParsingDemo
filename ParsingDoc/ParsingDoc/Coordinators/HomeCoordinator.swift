@@ -12,25 +12,23 @@ final class HomeCoordinator: Coordinator {
     
     private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
+        
+    var onDismissed: (() -> Void)
     
-    var parentCoordinator: ParentCoordinator?
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, onDismissed: @escaping () -> Void) {
         self.navigationController = navigationController
+        self.onDismissed = onDismissed
     }
     
     func start() {
         let homeViewController = HomeViewController.instantiate()
-        let homeViewModel = HomeViewModel()
-        homeViewModel.coordinator = self
+        let homeViewModel = HomeViewModel {
+            self.onDismissed()
+        }
         homeViewController.viewModel = homeViewModel // Enable to remove the deallocaiton while going back
         navigationController.pushViewController(homeViewController, animated: true)
     }
-    
-    func didFinishHomeCoordinator() {
-        parentCoordinator?.childDidFinish(self)
-    }
-    
+
     deinit {
         print("Deallocated from home coordinator")
     }

@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func userTappedDetailsButton(_ sender: Any) {
-        viewModel?.tappedHomeEvent()
+        viewModel?.invokeHomeButton()
     }
 }
 
