@@ -19,18 +19,19 @@ final class LoginCoordinator: Coordinator {
     
     func start() {
         let loginViewController = LoginViewController.instantiate()
-        let loginViewModel = LoginViewModel {
-            self.tappedHomeButton()//Invoke home button
+        let loginViewModel = LoginViewModel { [weak self] in
+            self?.tappedHomeButton()//Invoke home button
         }
         loginViewController.viewModel = loginViewModel
         navigationController.setViewControllers([loginViewController], animated: false)
     }
     
     func tappedHomeButton() {
-        let homeCoordinator = HomeCoordinator(navigationController: navigationController, onDismissed: { [weak self] in
-            self?.childCoordinators.removeAll()
-            //self.removeChild(child)
-        })
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        unowned(unsafe) let childCoordinator = homeCoordinator
+        homeCoordinator.onDismissed = { [weak self] in
+            self?.removeChildCoordinator(childCoordinator)
+        }
         childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
         
@@ -40,7 +41,7 @@ final class LoginCoordinator: Coordinator {
 //        homeCoordinator.start()
     }
     
-    func removeChild(_ child: Coordinator) {
+    func removeChildCoordinator(_ child: Coordinator) {
         guard let index = childCoordinators
             .firstIndex(where: { $0 === child }) else {
             return

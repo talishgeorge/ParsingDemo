@@ -13,11 +13,10 @@ final class HomeCoordinator: Coordinator {
     private(set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
         
-    var onDismissed: (() -> Void)
+    var onDismissed: (() -> Void) = {}
     
-    init(navigationController: UINavigationController, onDismissed: @escaping () -> Void) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.onDismissed = onDismissed
     }
     
     func start() {
